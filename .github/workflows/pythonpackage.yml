@@ -23,7 +23,7 @@ jobs:
     - name: 'Sign In'
       env:
         username: ${{ secrets.username }}
-        pasasword: ${{ secrets.password }}
+        password: ${{ secrets.password }}
         api: ${{ secrets.api }} 
       run: |
         python jksb.py
