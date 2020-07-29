@@ -66,7 +66,7 @@ class Log:
                 if '已经填报' in init_text:
                 # if '1' in init_text:
                     #self.fp.writelines(u"{} --> 打卡成功 -->已填报过了 无需重复填写  ^_^ \n ".format(time.strftime("%Y-%m-%d  %H : %M: %S", time.localtime())))
-                    print(u"{}  已完成上报啦 ，无需重复啦 ^_^ ".format(time.strftime("%Y-%m-%d  %H : %M: %S", time.localtime())))
+                    print(u"{}  已完成上报啦 ，无需重复啦 ^_^ ".format(time.strftime("%Y-%m-%d  %H : %M: %S", time.localtime(time.time() + 8*3600))))
                     time.sleep(5)
                     sys.exit()
                 else:
@@ -83,7 +83,7 @@ class Log:
                     pattern = re.compile(r"感谢你今日上报健康状况！")
                     confirm = re.findall(pattern, notis)#
                     if confirm :
-                        today = "{} --> 打卡成功 -->  ^_^\n".format(str(time.strftime(u"%Y-%m-%d  %H : %M: %S", time.localtime())))
+                        today = "{} --> 打卡成功 -->  ^_^\n".format(str(time.strftime(u"%Y-%m-%d  %H : %M: %S", time.localtime(time.time() + 8*3600))))
                         print(today)
                         Wechat("打卡成功",today)
                         #self.fp.writelines(today)
@@ -95,7 +95,7 @@ class Log:
             except (TimeoutError,SessionNotCreatedException):
                 while 1:
                     if self.i <= 3:
-                        error = u"{} --> 打卡失败 --> 已进行第{}次重试  (┬＿┬) \n".format(str(time.strftime(u"%Y-%m-%d  %H : %M: %S", time.localtime())) , str(self.i))
+                        error = u"{} --> 打卡失败 --> 已进行第{}次重试  (┬＿┬) \n".format(str(time.strftime(u"%Y-%m-%d  %H : %M: %S", time.localtime(time.time() + 8*3600))) , str(self.i))
                         #self.fp.writelines(error)
                         print(error)
                         self.i+=1
@@ -108,7 +108,7 @@ class Log:
                         time.sleep(4)
                         self.login()
                     else:
-                        error2 = u"{} --> 打卡失败 --> 已尝试{}次且未成功 ， 打卡失败请重试！！  (┬＿┬) \n".format(str(time.strftime(u"%Y-%m-%d  %H : %M: %S", time.localtime())) , str(self.i))
+                        error2 = u"{} --> 打卡失败 --> 已尝试{}次且未成功 ， 打卡失败请重试！！  (┬＿┬) \n".format(str(time.strftime(u"%Y-%m-%d  %H : %M: %S", time.localtime(time.time() + 8*3600))) , str(self.i))
                         #self.fp.writelines(error2)
                         print(error2)
                         Wechat("打卡失败",error2)
