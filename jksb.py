@@ -48,7 +48,7 @@ class Log:
                 wd.get("http://jksb.zzu.edu.cn/")
                 wd.switch_to.frame(0)
                 try:
-                    wait(wd , 10 ,poll_frequency=0.5).until(ec.presence_of_element_located((By.NAME , 'uid'))).send_keys(self.uid)
+                    wait(wd , 30 ,poll_frequency=0.5).until(ec.presence_of_element_located((By.NAME , 'uid'))).send_keys(self.uid)
                     time.sleep(0.5)
                     wait(wd , 10, poll_frequency=0.5).until(ec.visibility_of_element_located((By.NAME , "upw"))).send_keys(self.pwd)
                     time.sleep(0.5)
@@ -61,7 +61,7 @@ class Log:
                 #切入frame
                 wd.switch_to.frame('zzj_top_6s')
                 time.sleep(0.5)
-                init = wait(wd , 10 ,poll_frequency=0.5).until(ec.presence_of_element_located((By.XPATH , '//*[@id="bak_0"]/div[7]/span')))
+                init = wait(wd , 30 ,poll_frequency=0.5).until(ec.presence_of_element_located((By.XPATH , '//*[@id="bak_0"]/div[7]/span')))
                 init_text  = init.text
                 if '已经填报' in init_text:
                 # if '1' in init_text:
@@ -70,19 +70,19 @@ class Log:
                     time.sleep(5)
                     sys.exit()
                 else:
-                    wait(wd ,10 ,poll_frequency=1).until(ec.element_to_be_clickable((By.XPATH , '//*[@id="bak_0"]/div[13]/div[3]/div[4]'))).click()
+                    wait(wd , 10 ,poll_frequency=1).until(ec.element_to_be_clickable((By.XPATH , '//*[@id="bak_0"]/div[13]/div[5]/div[4]'))).click()
                     # Select(wd.find_element_by_xpath('//*[@id="bak_0"]/div[8]/select')).select_by_value("正常")
                     # wait(wd, 10, poll_frequency=0.5).until(ec.element_to_be_clickable((By.XPATH, '//*[@id="bak_0"]/div[13]/div[4]/span'))).click()
-                    wait(wd, 10, poll_frequency=0.5).until(ec.element_to_be_clickable((By.XPATH, '//*[@id="bak_0"]/div[19]/div[4]/span'))).click()
+                    wait(wd, 30 , poll_frequency=0.5).until(ec.element_to_be_clickable((By.XPATH, '//*[@name="myform52"]/div[3]/div[4]/span'))).click()
 
 
                     # notis = wd.find_element_by_xpath('//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]').text
                     notis = wd.find_element_by_xpath('//*[@id="bak_0"]/div[2]').text
-
+                    init = wait(wd , 10 ,poll_frequency=0.5).until(ec.presence_of_element_located((By.XPATH , '//*[@id="bak_0"]/div[7]/span')))
                     # pattern = re.compile(r"感谢您向学校上报健康状况")
-                    pattern = re.compile(r"感谢你今日上报健康状况！")
-                    confirm = re.findall(pattern, notis)#
-                    if confirm :
+                    # pattern = re.compile(r"感谢你今日上报健康状况！")
+                    # confirm = re.findall(pattern, notis)#
+                    if ('感谢' in notis) or ('已经填报' in init.text):
                         today = "{} --> 打卡成功 -->  ^_^\n".format(str(time.strftime(u"%Y-%m-%d  %H : %M: %S", time.localtime(time.time() + 8*3600))))
                         print(today)
                         Wechat("打卡成功",today)
