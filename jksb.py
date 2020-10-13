@@ -73,7 +73,7 @@ class Log:
                     wait(wd , 10 ,poll_frequency=1).until(ec.element_to_be_clickable((By.XPATH , '//*[@id="bak_0"]/div[13]/div[5]/div[4]'))).click()
                     # Select(wd.find_element_by_xpath('//*[@id="bak_0"]/div[8]/select')).select_by_value("正常")
                     # wait(wd, 10, poll_frequency=0.5).until(ec.element_to_be_clickable((By.XPATH, '//*[@id="bak_0"]/div[13]/div[4]/span'))).click()
-                    wait(wd, 30 , poll_frequency=0.5).until(ec.element_to_be_clickable((By.XPATH, '//*[@name="myform52"]/div[3]/div[4]/span'))).click()
+                    wait(wd, 10, poll_frequency=0.5).until(ec.element_to_be_clickable((By.XPATH, '//*[@id="bak_0"]/div[19]/div[4]/span'))).click()
 
 
                     # notis = wd.find_element_by_xpath('//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]').text
