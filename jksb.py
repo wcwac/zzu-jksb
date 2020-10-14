@@ -61,7 +61,7 @@ class Log:
                 #切入frame
                 wd.switch_to.frame('zzj_top_6s')
                 time.sleep(0.5)
-                init = wait(wd , 30 ,poll_frequency=0.5).until(ec.presence_of_element_located((By.XPATH , '//*[@id="bak_0"]/div[7]/span')))
+                init = wait(wd , 60 ,poll_frequency=0.5).until(ec.presence_of_element_located((By.XPATH , '//*[@id="bak_0"]/div[7]/span')))
                 init_text  = init.text
                 if '已经填报' in init_text:
                 # if '1' in init_text:
@@ -78,7 +78,7 @@ class Log:
 
                     # notis = wd.find_element_by_xpath('//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]').text
                     notis = wd.find_element_by_xpath('//*[@id="bak_0"]/div[2]').text
-                    init = wait(wd , 10 ,poll_frequency=0.5).until(ec.presence_of_element_located((By.XPATH , '//*[@id="bak_0"]/div[7]/span')))
+                    init = wait(wd , 60 ,poll_frequency=0.5).until(ec.presence_of_element_located((By.XPATH , '//*[@id="bak_0"]/div[7]/span')))
                     # pattern = re.compile(r"感谢您向学校上报健康状况")
                     # pattern = re.compile(r"感谢你今日上报健康状况！")
                     # confirm = re.findall(pattern, notis)#
