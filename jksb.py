@@ -78,11 +78,11 @@ class Log:
 
                     # notis = wd.find_element_by_xpath('//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]').text
                     notis = wd.page_source
-                    init = wait(wd , 60 ,poll_frequency=0.5).until(ec.presence_of_element_located((By.XPATH , '//*[@id="bak_0"]/div[7]/span')))
+                    # init = wait(wd , 60 ,poll_frequency=0.5).until(ec.presence_of_element_located((By.XPATH , '//*[@id="bak_0"]/div[7]/span')))
                     # pattern = re.compile(r"感谢您向学校上报健康状况")
                     # pattern = re.compile(r"感谢你今日上报健康状况！")
                     # confirm = re.findall(pattern, notis)#
-                    if ('感谢' in notis) or ('已经填报' in init.text):
+                    if ('感谢' in notis) or ('已经填报' in notis):
                         today = "{} --> 打卡成功 -->  ^_^\n".format(str(time.strftime(u"%Y-%m-%d  %H : %M: %S", time.localtime(time.time() + 8*3600))))
                         print(today)
                         Wechat("打卡成功",today)
