@@ -1,12 +1,25 @@
-开学了 此工具不再更新
-2020-08-26
-教程地址：https://wcac.art/posts/jksb/
+## 教程地址：https://wcac.art/posts/jksb/ ##
 
-~~暂时失效。我先试试能修不能~~
-找到问题了，貌似是GitHub的网络原因 明天再看看情况吧
-2020-10-03
+请仔细阅读教程及以下提示后再进行操作
 
-已更新
-2020-10-13
+建议Watch本项目以获取更新提示
 
-芜湖
+
+
+### 关于Github Actions自动停用
+ 根据 https://docs.github.com/cn/free-pro-team@latest/actions/managing-workflow-runs/disabling-and-enabling-a-workflow 所述：
+
+>警告： 为防止不必要的工作流程运行，可能会自动禁用计划的工作流程。 在复刻公共仓库时，默认情况下将禁用计划的工作流程。 在公共仓库中，当 60 天内未发生仓库活动时，将自动禁用计划的工作流程。
+
+所以尽量每隔两个月上线对仓库进行修改避免自动停用GitHub Actions。
+
+如果已经被停用可在**自己的仓库**选择Actions->jksb->enable重新启用。
+
+
+
+### 自动同步主分支最新的代码
+将仓库与主分支保持一致（也可选择删除仓库重新fork），务必确保存在/.github/workflows/pull.yml文件。
+
+安装[pull插件][1]，选择**Only select repositories**并将此项目加入。
+
+  [1]: https://github.com/apps/pull
