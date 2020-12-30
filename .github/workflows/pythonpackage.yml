@@ -3,7 +3,7 @@ name: jksb
 on:
   push:
   schedule:
-    - cron: '15 16,22 * * *'
+    - cron: '01 16,22 * * *'
 
 jobs:
   sign_in:
