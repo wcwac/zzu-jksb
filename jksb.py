@@ -123,5 +123,5 @@ class Log:
 
 
 if __name__ == "__main__":
-    loging  = Log()
-    loging.login()
+    # loging  = Log()
+    # loging.login()
