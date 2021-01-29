@@ -24,6 +24,7 @@ jobs:
       env:
         username: ${{ secrets.username }}
         password: ${{ secrets.password }}
+        location: ${{ secrets.location }}
         api: ${{ secrets.api }} 
       run: |
         python jksb.py
