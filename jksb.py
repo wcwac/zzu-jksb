@@ -41,7 +41,7 @@ class Log:
         self.wd.set_window_size(600, 800)
         if self.loc:
             self.wd.execute_cdp_cmd("Page.setGeolocationOverride", {
-                                    "latitude": int(self.loc[0]), "longitude": float(self.loc[1]), "accuracy": 1})
+                                    "latitude": float(self.loc[0]), "longitude": float(self.loc[1]), "accuracy": 1})
 
     def loginProcesser(self) -> bool:
         self.wd.get('http://jksb.zzu.edu.cn/')
